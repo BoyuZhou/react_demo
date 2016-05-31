@@ -6,7 +6,7 @@ import axios from 'axios';
  * @returns {*}
  */
 function getRepos (username) {
-    return axios.get('https://api.github.com/users/${username}');
+    return axios.get('https://api.github.com/users/'+username+'/repos');
 }
 /**
  * 获取用户基本信息
@@ -14,7 +14,7 @@ function getRepos (username) {
  * @returns {*}
  */
 function getUserInfo (username) {
-    return axios.get('http://api.github.com/users/$')
+    return axios.get('http://api.github.com/users/'+username)
 }
 
 export default function getGithubInfo (username) {
@@ -24,6 +24,6 @@ export default function getGithubInfo (username) {
     ])
     .then((arr) => ({
             repos: arr[0].data,
-            bio: arr[i].data
+            bio: arr[1].data
         }));
 }

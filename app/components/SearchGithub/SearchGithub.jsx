@@ -1,5 +1,5 @@
 import React, {Component, PropTypes } from 'react';
-import { browerHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 
 class SearchGithub extends Component {
     static PropTypes = {
@@ -11,9 +11,8 @@ class SearchGithub extends Component {
     handleSubmit(event){
         const username = this.usernameRef.value;
         this.usernameRef.value = '';
-
-        const path = '/profile/${username}';
-        browerHistory.push(path)
+        const path = '/profile/'+username;
+        browserHistory.push(path)
     }
     render(){
         return (
